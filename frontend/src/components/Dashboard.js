@@ -1,34 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Contacts from './Contacts'
 import Alerts from './Alerts'
-import { ReactComponent as AstroLogo } from "../static/img/astro-logo-small-dark.svg";
-import { RuxClock } from '@astrouxds/rux-clock/rux-clock.js';
-import { RuxGlobalStatusBar } from '@astrouxds/rux-global-status-bar/rux-global-status-bar.js';
-
-
-
 
 
 const Dashboard = () => {
+    const [alertsVisible, setAlerts] = useState(true);
+    const [contactsVisible, setContacts] = useState(true);
+
+    function hideAlerts(){
+        setAlerts(false);
+    }
+    function showAlerts(){
+        setAlerts(true);
+    }
+    function hideContacts(){
+        setContacts(false);
+    }
+
     return (
-        <div>
-            <rux-global-status-bar appname="Astro App" class="light-theme">
-        <AstroLogo />
-       
-        <rux-clock timezone='America/Los_Angeles' hideDate ></rux-clock>
-
-
-        </rux-global-status-bar>
-            <button class="rux-button">Submit</button>
-            <button class="rux-button rux-button--icon">
-  <rux-icon class="rux-icon rux-button__icon" icon="caution" color="white"></rux-icon>
-  Button with Icon using Astro UXDS Icon Web Component
-</button>
-
-        <Contacts/>
-        <Alerts/>
         
-
+        <div>
+            <div className= "toggle">
+            <button class="rux-button toggle" onClick={hideAlerts}>Hide Alerts</button>
+            <button class="rux-button toggle" onClick={showAlerts}>Show Alerts</button>
+            </div>
+            {alertsVisible ? <Alerts/> : null}
+            <Contacts/>
+            
         </div>
     )
 }
