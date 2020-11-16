@@ -47,7 +47,7 @@ class Alerts extends Component {
                   {alerts.map(alert => (
                     <tr class="rux-table__column-head" key={alert.id}>
                       <td>{alert.errorId}</td>
-                      <td>{alert.errorSeverity === "caution" ? <rux-status status="caution"></rux-status> : alert.errorSeverity === "serious" ? <rux-status status="serious"></rux-status> : <rux-status status="critical"></rux-status> }<span>{alert.errorSeverity}</span></td>
+                      <td className="float-container"><div className="float-child">{alert.errorSeverity === "caution" ? <rux-status status="caution"></rux-status> : alert.errorSeverity === "serious" ? <rux-status status="serious"></rux-status> : <rux-status status="critical"></rux-status> }</div><div className="float-child">{alert.errorSeverity}</div></td>
                       <td>{alert.errorMessage}</td>
                       <td>{alert.errorCategory}</td>
                       <td>{alert.errorTime}</td>
