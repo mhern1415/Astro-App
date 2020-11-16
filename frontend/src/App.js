@@ -47,7 +47,6 @@ render() {
       <div>
         <BrowserRouter>
           <Switch>
-            
             <Route 
               exact path='/' 
               render={props => (
