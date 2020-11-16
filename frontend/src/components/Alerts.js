@@ -7,9 +7,7 @@ import { RuxStatus } from '@astrouxds/rux-status/rux-status.js';
 class Alerts extends Component {
     constructor(props) {
         super(props);
-
         this.state = {alerts: [] };
-
     }
 
     componentDidMount() {
@@ -49,24 +47,14 @@ class Alerts extends Component {
                   {alerts.map(alert => (
                     <tr class="rux-table__column-head" key={alert.id}>
                       <td>{alert.errorId}</td>
-                      <td>{alert.errorSeverity === "caution" ? <rux-status status="caution"></rux-status> : alert.errorSeverity === "serious" ? <rux-status status="serious"></rux-status> : <rux-status status="critical"></rux-status> }{alert.errorSeverity}</td>
+                      <td>{alert.errorSeverity === "caution" ? <rux-status status="caution"></rux-status> : alert.errorSeverity === "serious" ? <rux-status status="serious"></rux-status> : <rux-status status="critical"></rux-status> }<span>{alert.errorSeverity}</span></td>
                       <td>{alert.errorMessage}</td>
                       <td>{alert.errorCategory}</td>
                       <td>{alert.errorTime}</td>
                     </tr>
                   ))}
                 </tbody>
-              </table>
-               {/* <li key={alert.id}>
-                 <p>{alert.errorId}</p>
-                 <p>{alert.errorSeverity}</p>
-                 <p>{alert.errorMessage}</p>
-                 <p>{alert.errorCategory}</p>
-                 <p>{alert.errorTime}</p>
-
-               </li> */}
-            
-          
+              </table>          
           </div>
 
         );
