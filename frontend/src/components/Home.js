@@ -6,6 +6,7 @@ import { ReactComponent as AstroLogo } from "../static/img/astro-logo-small-dark
 import { RuxClock } from '@astrouxds/rux-clock/rux-clock.js';
 import { RuxGlobalStatusBar } from '@astrouxds/rux-global-status-bar/rux-global-status-bar.js';
 import { RuxStatus } from '@astrouxds/rux-status/rux-status.js';
+import Starfield from './Starfield'
 
 
 const Home = (props) => {
@@ -33,10 +34,10 @@ return (
         <AstroLogo />
         <rux-clock timezone='America/Los_Angeles' hideDate ></rux-clock>
         </rux-global-status-bar>
-        
+
       <br></br>
       { 
-        props.loggedInStatus ? <Dashboard /> : null
+        props.loggedInStatus ? <Dashboard /> : <Starfield />
       }
 
     </div>
