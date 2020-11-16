@@ -19,11 +19,11 @@
   color: red;
 }
 
-.table {
-  background-color: #282c34;
-  text-align: center;
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;}
 
-}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
