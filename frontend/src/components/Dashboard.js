@@ -1,30 +1,27 @@
 import React, { useState } from 'react';
 import Contacts from './Contacts'
 import Alerts from './Alerts'
+import Switch from "react-switch";
 
 
 const Dashboard = () => {
-    const [alertsVisible, setAlerts] = useState(true);
+    const [checkedAlerts, setChecked] = useState(true);
     const [contactsVisible, setContacts] = useState(true);
 
-    function hideAlerts(){
-        setAlerts(false);
-    }
-    function showAlerts(){
-        setAlerts(true);
-    }
-    function hideContacts(){
-        setContacts(false);
+    function toggleAlerts(checkedAlerts){
+        setChecked(checkedAlerts);
     }
 
     return (
         
         <div>
-            <div className= "toggle">
-            <button class="rux-button toggle" onClick={hideAlerts}>Hide Alerts</button>
-            <button class="rux-button toggle" onClick={showAlerts}>Show Alerts</button>
-            </div>
-            {alertsVisible ? <Alerts/> : null}
+            <label>
+                <span>Toggle Alerts Table  </span>
+                    <Switch onChange={toggleAlerts} checked={checkedAlerts} />   
+            </label>
+           <br></br>
+           <br></br>
+            {checkedAlerts ? <Alerts/> : null}
             <Contacts/>
             
         </div>
