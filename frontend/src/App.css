@@ -57,11 +57,10 @@
 .toggle-1 {
   width: 20%;
   float: left;
-  margin-left: 20%;
+  margin-left: 28%;
 }
-.toggle- {
-  width: 50%;
-  float: left;
+.toggle-2 {
+  margin-right: 30%;
 }
 .float-child {
   width: 42%;
