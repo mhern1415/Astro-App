@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import Starfield from '../Starfield'
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -60,6 +62,9 @@ handleErrors = () => {
 render() {
     const {username, email, password} = this.state
 return (
+<div>
+<Starfield />
+<div className="auth">
       <div class="rux-form-field--small">
         <h1>Log In</h1>
         <form onSubmit={this.handleSubmit}>
@@ -70,6 +75,8 @@ return (
             value={username}
             onChange={this.handleChange}
           />
+          <br></br>
+          <br></br>
           <input
             placeholder="Email"
             type="text"
@@ -77,6 +84,8 @@ return (
             value={email}
             onChange={this.handleChange}
           />
+          <br></br>
+          <br></br>
           <input
             placeholder="Password"
             type="password"
@@ -84,11 +93,12 @@ return (
             value={password}
             onChange={this.handleChange}
           />
-          
-          <button class="rux-button" placeholder="submit" type="submit">Log In</button>
-
+          <br></br>
+          <br></br>
+          <button className="rux-button" placeholder="submit" type="submit">Log In</button>
+          <br></br>
           <div>
-            or <Link to='/signup'>sign up</Link>
+            or <Link to='/signup'>Sign Up</Link>
           </div>
           
           </form>
@@ -97,6 +107,8 @@ return (
             this.state.errors ? this.handleErrors() : null
           }
         </div>
+      </div>
+      </div>
       </div>
     );
   }
