@@ -5,24 +5,34 @@ import Switch from "react-switch";
 
 
 const Dashboard = () => {
-    const [checkedAlerts, setChecked] = useState(true);
-    const [contactsVisible, setContacts] = useState(true);
+    const [checkedAlerts, setAlertChecked] = useState(true);
+    const [checkedContacts, setContactChecked] = useState(true);
 
     function toggleAlerts(checkedAlerts){
-        setChecked(checkedAlerts);
+        setAlertChecked(checkedAlerts);
+    }
+    function toggleContacts(checkedContacts){
+        setContactChecked(checkedContacts);
     }
 
     return (
         
         <div>
             <label>
-                <span>Toggle Alerts Table  </span>
+                <span>Toggle Alerts Table    </span>
                     <Switch onChange={toggleAlerts} checked={checkedAlerts} />   
+            </label>
+            <label>
+                <span>    Toggle Contacts Table  </span>
+                    <Switch onChange={toggleContacts} checked={checkedContacts} />   
             </label>
            <br></br>
            <br></br>
             {checkedAlerts ? <Alerts/> : null}
-            <Contacts/>
+            <br></br>
+            <br></br>
+            {checkedContacts ? <Contacts/> : null}
+
             
         </div>
     )
