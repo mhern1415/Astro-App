@@ -20,7 +20,7 @@ const handleClick = () => {
   }
 return (
    
-    <div className="auth">
+    <div className="home">
        <rux-global-status-bar appname="Astro App" class="light-theme">
         { 
         props.loggedInStatus ? <rux-status status="normal"></rux-status> : <rux-status status="critical"></rux-status>
@@ -34,10 +34,12 @@ return (
         <AstroLogo />
         <rux-clock timezone='America/Los_Angeles' hideDate ></rux-clock>
         </rux-global-status-bar>
-
       <br></br>
       { 
         props.loggedInStatus ? <Dashboard /> : <Starfield />
+      }
+       { 
+        props.loggedInStatus ? <Dashboard /> : <h1 className= "title">Welcome to the Astro App! Please log in or sign up to view your Dashboard.</h1>
       }
 
     </div>
