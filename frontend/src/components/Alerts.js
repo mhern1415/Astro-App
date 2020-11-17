@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import { RuxStatus } from '@astrouxds/rux-status/rux-status.js';
 
 
 class Alerts extends Component {
@@ -16,12 +15,12 @@ class Alerts extends Component {
           .then(data => this.setState({ alerts: data.alerts }));
     }
 
-    onSortAsc(event, sortKey) {
+    onSortAsc(sortKey) {
         const sorted = this.state.alerts
         sorted.sort((a,b) => a[sortKey].localeCompare(b[sortKey]))
         this.setState({sorted})
     }
-    onSortDesc(event, sortKey) {
+    onSortDesc(sortKey) {
         const sorted = this.state.alerts
         sorted.sort((a,b) => b[sortKey].localeCompare(a[sortKey]))
         this.setState({sorted})
@@ -37,9 +36,9 @@ class Alerts extends Component {
                 <thead>
                   <tr>
                     <th>Error ID</th>
-                    <th>Error Severity<ArrowUpwardIcon onClick={e => this.onSortAsc(e, 'errorSeverity')}/><ArrowDownwardIcon onClick={e => this.onSortDesc(e, 'errorSeverity')} /></th>
+                    <th>Error Severity<ArrowUpwardIcon onClick={e => this.onSortAsc('errorSeverity')}/><ArrowDownwardIcon onClick={e => this.onSortDesc('errorSeverity')} /></th>
                     <th>Error Message</th>
-                    <th>Error Category<ArrowUpwardIcon onClick={e => this.onSortAsc(e, 'errorCategory')}/><ArrowDownwardIcon onClick={e => this.onSortDesc(e, 'errorCategory')} /></th>
+                    <th>Error Category<ArrowUpwardIcon onClick={e => this.onSortAsc('errorCategory')}/><ArrowDownwardIcon onClick={e => this.onSortDesc('errorCategory')} /></th>
                     <th>Error Time</th>
                   </tr>
                 </thead>
