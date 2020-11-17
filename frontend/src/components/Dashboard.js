@@ -20,13 +20,13 @@ const Dashboard = () => {
         <div>
             <div className="toggle-1">
             <label>
-                <span>Toggle Alerts Table  </span>
+                <h3>Toggle Alerts Table</h3>
                     <Switch onColor="#005A8F" onChange={toggleAlerts} checked={checkedAlerts} />   
             </label>
             </div>
             <div className="toggle-2">
             <label>
-                <span>Toggle Contacts Table  </span>
+                <h3>Toggle Contacts Table  </h3>
                     <Switch onColor="#005A8F" onChange={toggleContacts} checked={checkedContacts} />   
             </label>
             </div>
