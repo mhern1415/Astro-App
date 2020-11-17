@@ -21,25 +21,25 @@ const handleClick = () => {
 return (
    
     <div className="home">
-          <rux-global-status-bar appname="Astro App" class="light-theme">
-             { 
-               props.loggedInStatus ? <rux-status status="normal"></rux-status> : <rux-status status="critical"></rux-status>
-              }
-             { 
-               props.loggedInStatus ? <button class="rux-button"><Link style={{color: "white"}} to='/logout' onClick={handleClick}>Log Out</Link></button> : <Link style={{color: "white"}} to='/login'>Log In</Link>
-             }
-             { 
-               props.loggedInStatus ? null : <Link style={{color: "white"}} to='/signup'>Sign Up</Link>
-             }
-              <AstroLogo />
-              <rux-clock timezone='America/Los_Angeles' hideDate ></rux-clock>
-          </rux-global-status-bar>
+       <rux-global-status-bar appname="Astro App" class="light-theme">
+        { 
+        props.loggedInStatus ? <rux-status status="normal"></rux-status> : <rux-status status="critical"></rux-status>
+      }
+        { 
+        props.loggedInStatus ? <button class="rux-button"><Link style={{color: "white"}} to='/logout' onClick={handleClick}>Log Out</Link></button> : <Link style={{color: "white"}} to='/login'>Log In</Link>
+      }
+      { 
+        props.loggedInStatus ? null : <Link style={{color: "white"}} to='/signup'>Sign Up</Link>
+      }
+        <AstroLogo />
+        <rux-clock timezone='America/Los_Angeles' hideDate ></rux-clock>
+        </rux-global-status-bar>
       <br></br>
       { 
         props.loggedInStatus ? <Dashboard /> : <Starfield />
       }
        { 
-        props.loggedInStatus ? <Dashboard /> : <h1 className= "title">Welcome to the Astro App! Please log in or sign up to view your Dashboard.</h1>
+        props.loggedInStatus ? null : <h1 className= "title">Welcome to the Astro App! Please log in or sign up to view your Dashboard.</h1>
       }
 
     </div>
