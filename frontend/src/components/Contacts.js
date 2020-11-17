@@ -62,7 +62,7 @@ class Contacts extends Component {
                 <thead>
                   <tr>
                     <th>Contact Name<ArrowUpwardIcon onClick={e => this.onSortAsc(e, 'contactName')}/><ArrowDownwardIcon onClick={e => this.onSortDesc(e, 'contactName')} /></th>
-                    <th>Contact Status</th>
+                    <th>Contact Status<ArrowUpwardIcon onClick={e => this.onSortAscState(e, 'contactStatus')}/><ArrowDownwardIcon onClick={e => this.onSortDescState(e, 'contactStatus')} /></th>
                     <th>Begin Timestamp</th>
                     <th>End Timestamp</th>
                     <th>Contact State<ArrowUpwardIcon onClick={e => this.onSortAscState(e, 'contactState')}/><ArrowDownwardIcon onClick={e => this.onSortDescState(e, 'contactState')} /></th>
@@ -72,7 +72,7 @@ class Contacts extends Component {
                   {contacts.map(contact => (
                     <tr class="rux-table__column-head" key={contact.id}>
                       <td>{contact.contactName}</td>
-                      <td>{contact.contactStatus}</td>
+                      <td className="float-container"><div className="float-child">{contact.contactStatus === "caution" ? <rux-status status="caution"></rux-status> : contact.contactStatus === "serious" ? <rux-status status="serious"></rux-status> : contact.contactStatus === "critical" ? <rux-status status="critical"></rux-status> : <rux-status status="normal"></rux-status>}</div><div className="float-child">{contact.contactStatus}</div></td>
                       <td>{contact.contactBeginTimestamp}</td>
                       <td>{contact.contactEndTimestamp}</td>
                       <td>{contact.contactState}</td>
