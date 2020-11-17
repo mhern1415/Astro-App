@@ -1,42 +1,62 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React, { Component } from 'react';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+class Contacts extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {contacts: [] };
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:3001/contacts')
+          .then(response => response.json())
+          .then(data => this.setState({ contacts: data.contacts }));
+    }
+
+    onSortAsc(event, sortKey) {
+        const sorted = this.state.contacts
+        sorted.sort((a,b) =>  (a[sortKey] - b[sortKey]))
+        this.setState({sorted})
+    }
+    onSortDesc(event, sortKey) {
+        const sorted = this.state.contacts
+        sorted.sort((a,b) => (b[sortKey] - a[sortKey]))
+        this.setState({sorted})
+    }
+    render() {
+        const { contacts } = this.state;
+        const contactSize = contacts.length
+
+        return (
+            <div>            
+                <table class="rux-table" >
+                <caption><h1>{contactSize} Total contacts</h1></caption>
+                <thead>
+                  <tr>
+                    <th>Contact Name<ArrowUpwardIcon onClick={e => this.onSortAsc(e, 'contactName')}/><ArrowDownwardIcon onClick={e => this.onSortDesc(e, 'contactName')} /></th>
+                    <th>Contact Status</th>
+                    <th>Begin Timestamp</th>
+                    <th>End Timestamp</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {contacts.map(contact => (
+                    <tr class="rux-table__column-head" key={contact.id}>
+                      <td>{contact.contactName}</td>
+                      <td>{contact.contactStatus}</td>
+                      <td>{contact.contactBeginTimestamp}</td>
+                      <td>{contact.contactEndTimestamp}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>          
+          </div>
+
+        );
+    }
+
 }
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-export default function Contacts() {
-  const classes = useStyles();
-
-  return (
-    <div className="table">
-    
-    </div>
-  );
-}
-
-
-
-
-
+export default Contacts;
