@@ -31,10 +31,7 @@
   transform: translate(-50%, -50%);
   background-color: rgb(24, 38, 53);
 }
-.toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;}
+
 
 .App-header {
   background-color: #282c34;
@@ -57,9 +54,17 @@
 .float-container {
   border: 3px solid #fff;
 }
-
+.toggle-1 {
+  width: 20%;
+  float: left;
+  margin-left: 20%;
+}
+.toggle- {
+  width: 50%;
+  float: left;
+}
 .float-child {
-  width: 30%;
+  width: 42%;
   float: left;
   padding: 5px;
 }  

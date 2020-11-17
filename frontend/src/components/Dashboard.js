@@ -18,22 +18,24 @@ const Dashboard = () => {
     return (
         
         <div>
+            <div className="toggle-1">
             <label>
-                <span>Toggle Alerts Table    </span>
-                    <Switch onChange={toggleAlerts} checked={checkedAlerts} />   
+                <span>Toggle Alerts Table  </span>
+                    <Switch onColor="#005A8F" onChange={toggleAlerts} checked={checkedAlerts} />   
             </label>
+            </div>
+            <div className="toggle-2">
             <label>
-                <span>    Toggle Contacts Table  </span>
-                    <Switch onChange={toggleContacts} checked={checkedContacts} />   
+                <span>Toggle Contacts Table  </span>
+                    <Switch onColor="#005A8F" onChange={toggleContacts} checked={checkedContacts} />   
             </label>
+            </div>
            <br></br>
            <br></br>
             {checkedAlerts ? <Alerts/> : null}
             <br></br>
             <br></br>
-            {checkedContacts ? <Contacts/> : null}
-
-            
+            {checkedContacts ? <Contacts/> : null}  
         </div>
     )
 }
