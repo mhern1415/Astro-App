@@ -13,7 +13,7 @@ class Starfield extends Component {
           height: '100%'
         }}
       />
-      <h1 className= "title">Welcome to the Astro App! Please log in or sign up to view your Dashboard.</h1>
+      
       </div>
 
     )
