@@ -1,4 +1,4 @@
-To run application:
+# To run application:
 
 cd to frontend folder and run "npm install" and then "npm start"
 
@@ -10,14 +10,14 @@ The challenge-api is configured to run out of http://localhost:3001 while the fr
 
 This challenge utilizes the following Astro UXDS components:
 
-*Astro RUX Progress
-*Astro UXDS Input Fields
-*Astro UXDS HTML Table
-*Astro UXDS Status Symbols
-*Astro UXDS Button
-*Astro UXDS Global Status Bar
-*Astro UXDS Clock
-*Astro UXDS CSS Library
+* Astro RUX Progress
+* Astro UXDS Input Fields
+* Astro UXDS HTML Table
+* Astro UXDS Status Symbols
+* Astro UXDS Button
+* Astro UXDS Global Status Bar
+* Astro UXDS Clock
+* Astro UXDS CSS Library
 
 
 
