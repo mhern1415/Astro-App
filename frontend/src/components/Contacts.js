@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import { RuxProgress } from '@astrouxds/rux-progress/rux-progress.js';
+
 
 
 class Contacts extends Component {
     constructor(props) {
         super(props);
-        this.state = {contacts: [] };
+        this.state = {
+          contacts: [],
+          isLoading: false 
+        };
     }
 
     componentDidMount() {
+        this.setState({ isLoading: true });
         fetch('http://localhost:3001/contacts')
           .then(response => response.json())
-          .then(data => this.setState({ contacts: data.contacts }));
+          .then(data => this.setState({ contacts: data.contacts, isLoading: false }));
     }
 
     onSortAsc(event, sortKey) {
@@ -38,7 +44,7 @@ class Contacts extends Component {
    
     
     render() {
-        const { contacts } = this.state;
+        const { contacts, isLoading } = this.state;
         const contactSize = contacts.length
         const states = []
         contacts.map (contact =>(
@@ -49,7 +55,9 @@ class Contacts extends Component {
           counts1[btn] = counts1[btn] ? counts1[btn] + 1 : 1;
         })
         
-
+        if (isLoading) {
+          return <div className="auth"><rux-progress></rux-progress></div>;
+        }
 
         return (
             <div> 

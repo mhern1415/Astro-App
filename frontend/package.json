@@ -6,6 +6,7 @@
     "@astrouxds/rux-button": "^4.1.2",
     "@astrouxds/rux-clock": "^4.1.1",
     "@astrouxds/rux-global-status-bar": "^4.0.3",
+    "@astrouxds/rux-progress": "^4.0.3",
     "@astrouxds/rux-status": "^4.0.3",
     "@astrouxds/rux-toggle": "^4.0.3",
     "@material-ui/core": "^4.11.0",

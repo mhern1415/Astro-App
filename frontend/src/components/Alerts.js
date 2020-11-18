@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import { RuxProgress } from '@astrouxds/rux-progress/rux-progress.js';
+
 
 
 class Alerts extends Component {
     constructor(props) {
         super(props);
-        this.state = {alerts: [] };
+        this.state = {
+          alerts: [],
+          isLoading: false 
+        };
     }
 
     componentDidMount() {
+        this.setState({ isLoading: true });
         fetch('http://localhost:3001/alerts')
           .then(response => response.json())
-          .then(data => this.setState({ alerts: data.alerts }));
+          .then(data => this.setState({ alerts: data.alerts, isLoading: false }));
     }
 
     onSortAsc(sortKey) {
@@ -26,9 +32,11 @@ class Alerts extends Component {
         this.setState({sorted})
     }
     render() {
-        const { alerts } = this.state;
+        const { alerts, isLoading } = this.state;
         const alertSize = alerts.length
-
+        if (isLoading) {
+          return <div className="auth"><rux-progress></rux-progress></div>;
+        }
         return (
             <div>            
                 <table class="rux-table" >
