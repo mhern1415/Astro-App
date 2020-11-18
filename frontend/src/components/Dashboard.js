@@ -33,8 +33,7 @@ const Dashboard = () => {
            <br></br>
            <br></br>
             {checkedAlerts ? <Alerts/> : null}
-            <br></br>
-            <br></br>
+
             {checkedContacts ? <Contacts/> : null}  
         </div>
     )
