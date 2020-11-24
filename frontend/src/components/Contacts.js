@@ -51,12 +51,12 @@ class Contacts extends Component {
          states.push(contact.contactState)
         ))
         const counts1 = Object.create(null)
-        states.forEach(btn => {
-          counts1[btn] = counts1[btn] ? counts1[btn] + 1 : 1;
+        states.forEach(val => {
+          counts1[val] = counts1[val] ? counts1[val] + 1 : 1;
         })
         
         if (isLoading) {
-          return <div className="auth"><rux-progress></rux-progress></div>;
+          return <div className="spinner"><rux-progress></rux-progress></div>;
         }
 
         return (
